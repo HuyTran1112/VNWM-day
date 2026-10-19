@@ -1,37 +1,100 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f48fb1">
     <title>💌 Congraturation VN Women Day 💐</title>
-    <meta name="theme-color" content="#f48fb1" />
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Caveat:wght@400;700&family=Patrick+Hand&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="audio-note">🔊 chỉnh âm lượng khoảng 30% thôi nhé</div> <!-- 👈 dòng cảnh báo nhỏ -->
-        <h2>💌 Trước khi bắt đầu, cho tui xin tên bạn nhé 💐</h2>
-        <input type="text" id="nameInput" placeholder="Nhập tên hoặc họ tên của bạn..." />
-        <button id="btnSubmit">🌸 Enter 🌹</button>
-        <div id="result"></div>
+
+    <!-- Screen 1: Login / Entry Form -->
+    <div id="loginScreen">
+        <div class="login-container">
+            <h2>💌 Trước khi bắt đầu, cho tui xin thông tin nhé 💐</h2>
+            <div class="input-row">
+                <input type="text" id="nameInput" placeholder="Nhập tên hoặc họ tên...">
+                <input type="number" id="inviteCode" pattern="[0-9]*" inputmode="numeric" placeholder="Invite code">
+            </div>
+            <button id="btnSubmit">🌸 Enter 🌹</button>
+            <small>⚠️ web này viết riêng tên từng người, invite code giúp phân biệt trùng tên 😆</small>
+        </div>
     </div>
 
-    <div class="note">
-        ⚠️ web này viết riêng tên từng người mà tui gửi link, gửi cho người khác trùng tên ráng chịu nhe 😆
+    <!-- Screen 2: Main App -->
+    <div id="appScreen" style="display:none">
+
+        <!-- Inbox / Mail List -->
+        <div id="inboxView">
+            <div class="inbox-header">
+                <h1>📬 Hộp thư đến</h1>
+                <p id="welcomeText"></p>
+            </div>
+            <div id="mailList"></div>
+        </div>
+
+        <!-- Letter View -->
+        <div id="letterView" style="display:none">
+            <button id="btnBack">← Quay lại</button>
+            <div class="letter-display">
+                <div class="divider"></div>
+                <div class="letter-paper">
+                    <div id="textContainer" class="text-container"></div>
+                    <div id="endingArea" class="ending"></div>
+                    <div id="signature" class="signature"></div>
+                    <div class="morse-note" style="display:none"></div>
+                </div>
+                <div class="divider"></div>
+            </div>
+        </div>
+
     </div>
 
-    <audio id="bgMusic" loop></audio>
+    <!-- Fixed Music Player Bar -->
+    <div id="musicPlayerBar" style="display:none">
+        <div class="player-left">
+            <div id="spotifyEmbed" class="spotify-embed-mini"></div>
+        </div>
+        <div class="player-center">
+            <div class="player-controls">
+                <button id="btnShuffle" title="Shuffle"><i class="fas fa-shuffle"></i></button>
+                <button id="btnPrev" title="Previous"><i class="fas fa-backward-step"></i></button>
+                <button id="btnPlayPause" title="Play/Pause"><i class="fas fa-play"></i></button>
+                <button id="btnNext" title="Next"><i class="fas fa-forward-step"></i></button>
+                <button id="btnRepeat" title="Repeat"><i class="fas fa-repeat"></i></button>
+            </div>
+        </div>
+        <div class="player-right">
+            <button id="btnPlaylist" title="Danh sách phát"><i class="fas fa-list"></i></button>
+            <div class="volume-control">
+                <i class="fas fa-volume-low"></i>
+                <input type="range" id="volumeSlider" min="0" max="100" value="30">
+            </div>
+        </div>
+    </div>
+
+    <!-- Playlist Popup -->
+    <div id="playlistPopup" class="playlist-popup" style="display:none">
+        <div class="playlist-header">
+            <span>Danh sách chờ</span>
+            <button id="btnClosePlaylist"><i class="fas fa-xmark"></i></button>
+        </div>
+        <div class="playlist-now-playing">
+            <span class="playlist-section-title">Đang phát</span>
+            <div id="nowPlayingItem"></div>
+        </div>
+        <div class="playlist-next">
+            <span class="playlist-section-title">Danh sách tiếp theo</span>
+            <div id="playlistItems"></div>
+        </div>
+    </div>
 
     <script src="names.js"></script>
     <script src="script.js"></script>
-
-
 </body>
 </html>

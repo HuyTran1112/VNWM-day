@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html, body {
@@ -11,488 +11,398 @@ html, body {
   width: 100%;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   transition: background-image 2s ease-in-out;
-  color: #4a004f;
-  overflow-x: hidden;
+  color: #333;
 }
 
-body.has-player {
-  padding-bottom: 80px;
-}
-
-/* Font override for letter elements */
-.letter-paper,
-.text-container,
-.divider,
-.signature,
-.ending {
+/* Áp dụng font chữ thư tay */
+.letter-paper {
   font-family: 'Patrick Hand', cursive;
 }
+.signature {
+  font-family: 'Dancing Script', cursive;
+}
 
-/* ===== Login Screen ===== */
+/* Dùng Patrick Hand cho toàn bộ phần text để không bao giờ lỗi font tiếng Việt */
+.letter-date, .letter-to, .ending, .text-container {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.4em; 
+}
+
+.text-container {
+  font-style: italic; 
+}
+
+/* Ép phần kết thư căn phải tự nhiên 100% */
+.ending {
+  display: block;
+  width: 100%; 
+  text-align: right !important; 
+  color: #6a4a4a;
+  margin-top: 25px; 
+}
+
+/* Ép chữ ký căn phải tự nhiên 100% */
+.signature {
+  display: block;
+  width: 100%; 
+  text-align: right !important; 
+  font-weight: bold;
+  font-size: 1.8em; 
+  color: #4a2a2a;
+}
+
+/* ===== Login Screen & Intro Liền Mạch ===== */
 #loginScreen {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   padding: 20px;
+  position: relative;
 }
 
-.container {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 20px;
-  padding: 30px 20px;
-  max-width: 500px;
+#loginFormContainer {
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 16px;
+  padding: 40px 30px;
+  max-width: 450px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(244, 143, 177, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0);
+  transition: background 0.8s ease, box-shadow 0.8s ease, backdrop-filter 0.8s ease, -webkit-backdrop-filter 0.8s ease;
 }
 
-.container h2 {
-  margin-bottom: 15px;
-  color: #b4004e;
+#loginFormContainer.show-bg {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
+#mainTitle {
+  margin-bottom: 25px;
+  color: #d81b60;
+  font-size: 28px;
+  font-family: 'Dancing Script', cursive;
+  font-weight: bold;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#mainTitle.intro-mode {
+  transform: translateY(75px) scale(2.2);
+  text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+}
+
+#titleText::after {
+  content: "|";
+  animation: blinkCursor 0.7s infinite;
+}
+#mainTitle.no-cursor #titleText::after {
+  display: none;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hidden-emoji {
+  position: absolute;
+  opacity: 0;
+  font-family: 'Segoe UI', sans-serif;
+  transition: opacity 0.5s ease 0.4s, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s;
+}
+
+#emojiLeft {
+  right: 100%;
+  transform: translateX(-15px);
+}
+#emojiRight {
+  left: 100%;
+  transform: translateX(15px);
+}
+
+#mainTitle.show-emoji #emojiLeft {
+  opacity: 1;
+  transform: translateX(-5px);
+}
+#mainTitle.show-emoji #emojiRight {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+.form-content {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.form-content.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* HIỆU ỨNG LUỒNG NHẬP (2 STEP) */
 .input-row {
   display: flex;
+  gap: 0;
+  margin-bottom: 20px;
+  transition: gap 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.input-row.step2 {
   gap: 10px;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
 }
 
 .input-row input {
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
   border-radius: 8px;
-  border: none;
-  text-align: center;
+  border: 1px solid #ccc;
   outline: none;
 }
 
 #nameInput {
-  flex: 2;
-  min-width: 180px;
+  flex: 1;
+  width: 100%;
+}
+
+#inviteCodeWrapper {
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.input-row.step2 #inviteCodeWrapper {
+  width: 120px;
+  opacity: 1;
 }
 
 #inviteCode {
-  flex: 1;
-  min-width: 100px;
-  max-width: 120px;
+  width: 120px;
+  text-align: center;
 }
 
 .container button {
-  margin-top: 10px;
-  padding: 10px 20px;
+  padding: 12px 30px;
   border: none;
-  border-radius: 8px;
+  border-radius: 25px;
   background: #f48fb1;
   color: white;
   font-weight: bold;
   cursor: pointer;
-  font-size: 15px;
-  transition: background 0.2s;
+  font-size: 16px;
+  transition: all 0.3s;
+  width: 100%;
 }
 
 .container button:hover {
   background: #ec407a;
 }
 
-.note {
-  position: fixed;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 13px;
-  font-style: italic;
-  color: rgba(0, 0, 0, 0.45);
-  z-index: 100;
-  text-align: center;
-  white-space: nowrap;
-}
-
 /* ===== Inbox View ===== */
 #inboxView {
-  padding: 30px 20px;
+  padding: 40px 20px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .inbox-header {
   text-align: center;
   margin-bottom: 20px;
-}
-
-.inbox-header h2 {
-  color: #b4004e;
-  font-size: 24px;
-}
-
-#welcomeText {
-  font-size: 14px;
-  font-style: italic;
-  color: rgba(0, 0, 0, 0.6);
-  margin-top: 5px;
+  background: rgba(255,255,255,0.9);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  color: #1a1a1a;
 }
 
 #mailList {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 15px;
-  padding: 10px;
-  max-width: 900px;
-  margin: 0 auto;
 }
 
 .mail-card {
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 15px;
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 20px 25px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
-  border-left: 4px solid #f48fb1;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-left: 6px solid #ec407a;
+  
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUpFade 0.5s ease-out forwards;
 }
 
 .mail-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 20px rgba(244, 143, 177, 0.4);
-  background: rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-.mail-card .mail-sender {
-  font-size: 16px;
+.mail-icon {
+  font-size: 26px;
+  color: #d81b60;
+  opacity: 0.8;
+}
+
+.mail-info {
+  flex: 1;
+}
+
+.mail-sender {
   font-weight: bold;
-  color: #b4004e;
-  margin-bottom: 5px;
+  font-size: 18px;
+  color: #d81b60;
+  margin-bottom: 4px;
 }
 
-.mail-card .mail-sender::before {
-  content: '💌 ';
-}
-
-.mail-card .mail-title {
+.mail-title {
   font-size: 14px;
-  color: #555;
-  font-style: italic;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.mail-card .mail-icon {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  color: #f48fb1;
-  opacity: 0.5;
+  color: #666;
 }
 
 /* ===== Letter View ===== */
 #letterView {
   padding: 20px;
-  min-height: 100vh;
+  max-width: 750px;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 150px;
 }
 
 #btnBack {
-  position: fixed;
-  top: 20px;
+  position: absolute;
+  top: 0;
   left: 20px;
-  z-index: 100;
-  background: rgba(244, 143, 177, 0.9);
-  color: white;
+  background: #fff;
   border: none;
+  padding: 10px 20px;
   border-radius: 20px;
-  padding: 8px 18px;
   cursor: pointer;
-  font-size: 14px;
   font-weight: bold;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  color: #333;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   transition: background 0.2s;
+  z-index: 10;
 }
 
 #btnBack:hover {
-  background: #ec407a;
+  background: #f0f0f0;
 }
 
 .letter-paper {
-  margin-top: 25px;
-  background: #fffdf9;
-  border-radius: 8px;
-  padding: 25px 30px;
-  text-align: left;
-  line-height: 2em;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0px,
-    transparent 22px,
-    rgba(0, 0, 0, 0.08) 23px
-  );
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  font-family: 'Dancing Script', cursive;
-  font-size: 22px;
+  margin-top: 50px;
+  background-color: #fffdf9;
+  border-radius: 12px;
+  padding: 40px 50px;
+  line-height: 40px;
+  background-image: repeating-linear-gradient(to bottom, transparent, transparent 39px, rgba(0, 0, 0, 0.08) 39px, rgba(0, 0, 0, 0.08) 40px);
+  background-attachment: local;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
   color: #3a1a1a;
-  transform: rotate(-0.5deg);
-  position: relative;
-  max-width: 700px;
-  margin: 25px auto;
+  min-height: 500px;
 }
 
-.text-container {
-  white-space: pre-wrap;
-  font-style: italic;
-}
-
-.ending {
-  margin-top: 10px;
-  font-style: italic;
-  text-align: right;
-  color: #6a4a4a;
-}
-
-.signature {
-  margin-top: 5px;
-  text-align: right;
-  font-weight: bold;
-  font-size: 22px;
-  font-style: italic;
-}
-
-.divider {
-  margin: 10px auto;
-  text-align: center;
-  color: #999;
-  max-width: 700px;
-}
-
-.divider.morse {
-  font-family: 'Courier New', monospace;
-  color: rgba(0, 0, 0, 0.6);
-  letter-spacing: 3px;
-  animation: blinkMorse 1.8s infinite alternate;
-}
-
-@keyframes blinkMorse {
-  from { opacity: 0.4; }
-  to   { opacity: 1; }
-}
-
-.morse-note {
-  text-align: center;
-  font-size: 14px;
-  font-style: italic;
-  color: rgba(0, 0, 0, 0.5);
-  margin-top: 8px;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  user-select: none;
-}
-
-/* ===== Audio Note Animation ===== */
-.audio-note {
-  font-size: 14px;
-  font-style: italic;
-  color: rgba(0, 0, 0, 0.55);
-  margin-top: -5px;
-  margin-bottom: 10px;
-  animation: fadeVolume 2s ease-in-out infinite alternate;
-}
-
-@keyframes fadeVolume {
-  from { opacity: 0.4; }
-  to   { opacity: 0.8; }
-}
-
-/* ===== Music Player Bar (Spotify-style) ===== */
-#musicPlayerBar {
+/* ===== Trình phát nhạc Spotify + Playlist ===== */
+#musicContainer {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 72px;
-  background: #181818;
-  display: grid;
-  grid-template-columns: 30% 40% 30%;
-  align-items: center;
-  padding: 0 16px;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
   z-index: 1000;
-  border-top: 1px solid #282828;
-}
-
-/* -- Player Left -- */
-.player-left {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  min-width: 180px;
-}
-
-.spotify-embed-mini {
-  width: 250px;
-  height: 80px;
-  overflow: hidden;
-}
-
-.spotify-embed-mini iframe {
-  width: 100%;
-  height: 80px;
-  border: none;
-  border-radius: 8px;
-}
-
-/* -- Player Center -- */
-.player-center {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
+  align-items: flex-end;
+  gap: 15px;
 }
 
-.player-controls {
+.music-controls-wrapper {
   display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.player-controls button {
-  background: transparent;
-  border: none;
-  color: #b3b3b3;
-  font-size: 16px;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-
-.player-controls button:hover {
-  color: white;
-}
-
-.player-controls button.active {
-  color: #1db954;
-}
-
-#btnPlayPause {
-  background: white;
-  color: #181818;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  transition: transform 0.15s;
-}
-
-#btnPlayPause:hover {
-  transform: scale(1.05);
-  color: #181818;
-}
-
-/* -- Player Right -- */
-.player-right {
-  display: flex;
-  align-items: center;
   justify-content: flex-end;
   width: 100%;
-  gap: 12px;
 }
 
-#btnPlaylist {
-  background: transparent;
+#btnTogglePlaylist {
+  background: #121212;
+  color: #fff;
   border: none;
-  color: #b3b3b3;
-  font-size: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   cursor: pointer;
-  transition: color 0.2s;
-}
-
-#btnPlaylist:hover {
-  color: white;
-}
-
-.volume-control {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  font-size: 18px;
+  transition: all 0.2s ease-in-out;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 8px;
-  color: #b3b3b3;
 }
 
-.volume-control i {
-  font-size: 14px;
-}
-
-#volumeSlider {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100px;
-  height: 4px;
-  border-radius: 2px;
-  background: #535353;
-  outline: none;
-}
-
-#volumeSlider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: white;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-#volumeSlider::-moz-range-thumb {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: white;
-  cursor: pointer;
-  border: none;
-}
-
-.volume-control:hover #volumeSlider::-webkit-slider-thumb {
-  background: #1db954;
-}
-
-.volume-control:hover #volumeSlider::-moz-range-thumb {
-  background: #1db954;
-}
-
-/* ===== Playlist Popup ===== */
-#playlistPopup {
-  position: fixed;
-  bottom: 80px;
-  right: 16px;
-  width: 350px;
-  max-height: 500px;
+#btnTogglePlaylist:hover {
   background: #282828;
-  border-radius: 8px;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
-  overflow-y: auto;
-  z-index: 1001;
-  padding: 16px;
+  color: #1db954;
+  transform: scale(1.08);
+}
+
+#spotifyPlayerWidget {
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border-radius: 12px;
+}
+
+#playlistPopup {
+  position: absolute;
+  bottom: 100px;
+  right: 0;
+  width: 300px;
+  max-height: 350px;
+  background: #121212;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
   color: white;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#playlistPopup.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
 }
 
 .playlist-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  padding: 15px 20px;
+  border-bottom: 1px solid #282828;
 }
 
 .playlist-header span {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .playlist-header button {
@@ -505,63 +415,44 @@ body.has-player {
 }
 
 .playlist-header button:hover {
-  color: white;
+  color: #fff;
 }
 
-.playlist-section-title {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #b3b3b3;
-  margin-bottom: 8px;
-  display: block;
+.playlist-content {
+  overflow-y: auto;
+  padding: 10px;
 }
 
-.playlist-now-playing {
-  margin-bottom: 16px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #404040;
+.playlist-content::-webkit-scrollbar {
+  width: 6px;
+}
+.playlist-content::-webkit-scrollbar-thumb {
+  background: #535353;
+  border-radius: 3px;
 }
 
 .playlist-item {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 8px;
-  border-radius: 4px;
+  padding: 12px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background 0.2s;
 }
 
 .playlist-item:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: #2a2a2a;
 }
 
-.playlist-item.active {
-  background: rgba(29, 185, 84, 0.2);
-}
-
-.playlist-item-cover {
-  width: 40px;
-  height: 40px;
-  border-radius: 4px;
-  background: #404040;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #b3b3b3;
-  font-size: 16px;
-  flex-shrink: 0;
-}
-
-.playlist-item-info {
-  flex: 1;
-  overflow: hidden;
+.playlist-item.active .playlist-item-title {
+  color: #1db954;
 }
 
 .playlist-item-title {
   font-size: 14px;
   color: white;
+  font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -572,114 +463,119 @@ body.has-player {
   color: #b3b3b3;
 }
 
-.playlist-item-duration {
-  font-size: 12px;
-  color: #b3b3b3;
-}
-
-/* Playlist popup scrollbar */
-.playlist-popup::-webkit-scrollbar,
-#playlistPopup::-webkit-scrollbar {
-  width: 8px;
-}
-
-.playlist-popup::-webkit-scrollbar-thumb,
-#playlistPopup::-webkit-scrollbar-thumb {
-  background: #535353;
-  border-radius: 4px;
-}
-
-.playlist-popup::-webkit-scrollbar-track,
-#playlistPopup::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* ===== Custom Popup (Invite Code Warning) ===== */
-.popup-overlay {
+/* ===== Invite Code Popup ===== */
+.invite-popup-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  background: rgba(0,0,0,0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2000;
+  animation: fadeIn 0.3s ease;
 }
 
-.popup-box {
-  background: white;
-  border-radius: 16px;
-  padding: 30px 40px;
+.invite-popup-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
   text-align: center;
-  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
-  animation: popIn 0.3s ease;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-.popup-box p {
+.invite-popup-box p {
   font-size: 18px;
-  color: #b4004e;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
 }
 
-.popup-box button {
-  background: #f48fb1;
-  color: white;
+.invite-popup-box small {
+  display: block;
+  margin-bottom: 20px;
+  color: #666;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.invite-btn-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn-continue, .btn-back {
+  padding: 10px 15px;
   border: none;
   border-radius: 8px;
-  padding: 8px 20px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 14px;
-  transition: background 0.2s;
+  transition: opacity 0.2s;
 }
 
-.popup-box button:hover {
-  background: #ec407a;
+.btn-continue:hover, .btn-back:hover {
+  opacity: 0.8;
+}
+
+.btn-continue {
+  background: #f48fb1;
+  color: #fff;
+}
+
+.btn-back {
+  background: #eee;
+  color: #333;
+}
+
+/* =========================================================
+   CÁC KEYFRAMES ANIMATION VÀ MORPH (VIEW TRANSITIONS)
+========================================================= */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes popIn {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-/* ===== Responsive Tweaks ===== */
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.morph-active {
+  view-transition-name: letter-morph;
+}
+.letter-paper {
+  view-transition-name: letter-morph;
+}
+
+::view-transition-old(letter-morph),
+::view-transition-new(letter-morph) {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 @media (max-width: 768px) {
-  #musicPlayerBar {
-    grid-template-columns: 1fr;
-    height: auto;
-    padding: 8px 12px;
+  #musicContainer {
+    width: 90%;
+    left: 5%;
+    right: 5%;
+    bottom: 20px;
   }
-
-  .player-left {
-    display: none;
-  }
-
-  .player-center {
-    order: 1;
-  }
-
-  .player-right {
-    order: 2;
-    justify-content: center;
-  }
-
   #playlistPopup {
-    right: 8px;
-    left: 8px;
-    width: auto;
-    bottom: 72px;
+    width: 100%;
+    right: 0;
+    bottom: 100px;
   }
-
   .letter-paper {
-    padding: 18px 16px;
-    font-size: 18px;
+    padding: 30px 20px;
+    font-size: 20px;
   }
 }

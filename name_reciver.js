@@ -1,5 +1,5 @@
 /* ============================================================
-   TỔNG HỢP DANH SÁCH VÀ NỘI DUNG THƯ (DATABASE)
+TỔNG HỢP DANH SÁCH VÀ NỘI DUNG THƯ (DATABASE)
    ============================================================ */
 window.RECEIVER_DATA = [
     {
@@ -115,19 +115,35 @@ window.RECEIVER_DATA = [
         name: "Lệ",
         letters0: [{
             sender: "Huy Tran",
-            reciver: "Lệ",
-            messages: "Hé lo, 20-10 chúc pà zui vẻ nhé, làm nhiều tiền vào nhá. Cống hiến cho tư bản quá r đó 😆.\nÀ có tiền đừng quên e nhá 🤣, \"Nợ thì ko quen nhé\" =))). Thôi nói thế chứ gặp khó khăn về tài chính cứ bảo e, e cũng k giúp đc j đâu 😂\n(Hẹn gặp lại vào 1 ngày ko xa)\nÀ còn nữa, cái Nhi đòi lật đổ chị đấy 🤣🤣",
-            ending: "see yaa",
+            reciver: "Từ Thị Mỹ Lệ",
+            messages: "Hé lo, 20-10 chúc pà zui vẻ nhé, làm nhiều tiền vào nuôi cả nhỏ Nhi ăn học nữa nhá. Cống hiến cho tư bản vừa thôi ko \"cố quá thành quá cố\" đấy 😆.",
+            ending: "Hẹn gặp lại vào một ngày không xa",
             signature: "Huy Tran"
-        }],
+        },
+        {
+            sender: "Huy Tran",
+            reciver: "Từ Thị Mỹ Lệ",
+            messages: "À có tiền đừng quên e nhá 🤣, \"Nợ thì ko quen nhé\" =))). Thôi nói thế chứ gặp khó khăn về tài chính cứ bảo e, e cũng k giúp đc j đâu 😂",
+            ending: "Kẻ từng bị tư bản bóc lột !",
+            signature: "Huy Tran"
+        },
+        {
+            sender: "Huy Tran",
+            reciver: "pà Lệ :))",
+            messages: "À còn nữa, cái Nhi đòi lật đổ chị đấy 🤣🤣",
+            ending: "",
+            signature: ""
+        },
+    ],
         music: { disable: false, mode: "all" }
     },
+    //---------
     {
-        id: "",
+        id: "201001",
         name: "Quỳnh",
-        letters0: [{
+        letters0: [{ 
             sender: "Huy Tran",
-            reciver: "Quỳnh",
+            reciver: "Ân Thị Quỳnh",
             messages: "Lại thêm 1 năm nữa r, chúc chị 20-10 vui vẻ mạnh khỏe not khẻo nhá 😆. Sớm có nhiều tiền để k phải \"trốn nợ farm phong cảnh\" nữa nhá 😅, có j cho e đi ké với 😇.",
             ending: "see yaa",
             signature: "Huy Tran"
@@ -140,10 +156,17 @@ window.RECEIVER_DATA = [
         letters0: [{
             sender: "Huy Tran",
             reciver: "Diệu ninh",
-            messages: "Lâu r k gặp nhau nhỉ, chúc ní 20-10 vui vẻ xinh đẹp nhé, công việc ổn định ko mông lung nữa nhé\nÀ tìm đc cty nào ngon cho e theo với 😅🤣",
+            messages: "Lâu r k gặp nhau nhỉ, chúc ní 20-10 vui vẻ xinh đẹp nhé, công việc ổn định ko mông lung nữa nhé",
             ending: "see yaa",
             signature: "Huy Tran"
-        }],
+        },{
+            sender: "Huy Tran",
+            reciver: "Diệu ninh",
+            messages: "À tìm đc cty nào ngon cho e theo với 😅🤣",
+            ending: "Hẹn gặp lại vào một ngày không xa ",
+            signature: "Huy Tran"
+        },
+    ],
         music: { disable: false, mode: "all" }
     },
     {
@@ -151,11 +174,19 @@ window.RECEIVER_DATA = [
         name: "Lily linh",
         letters0: [{
             sender: "Huy Tran",
-            reciver: "Lily linh",
-            messages: "Hè hè lại là tui nhưng là version mới hơn đây, chúc bn 20-10 vui vẻ xinh đẹp nhé. Sớm đạt được ước mơ để tui còn test thử tay nghề bn nhé 😇.\nLật đổ cty đi bn, nổi loạn đi 🤣",
+            reciver: "Trần Phương Linh",
+            messages: "Hè hè lại là tui nhưng là version mới hơn đây, chúc bn 20-10 vui vẻ xinh đẹp nhé. Sớm đạt được ước mơ để tui còn test thử tay nghề bn nhé 😇.\n",
             ending: "see yaa",
             signature: "Huy Tran"
-        }],
+        },
+        {
+            sender: "Huy Tran",
+            reciver: "Lily linh",
+            messages: "Lật đổ cty đi bn, nổi loạn đi 🤣🤣🤣",
+            ending: "kẻ từng bị tư bản bóc lột !",
+            signature: "Huy Tran"
+        },
+    ],
         music: { disable: false, mode: "all" }
     },
     {
@@ -165,7 +196,7 @@ window.RECEIVER_DATA = [
             sender: "Huy Tran",
             reciver: "Lyn linhh",
             messages: "He lo, cũng quen bt lâu r ấy nhỉ, đáng nhẽ nên gọi là \"em\" thì đúng hơn nhỉ 😅. Thôi thì 20-10 này chúc bn vui vẻ, học giỏi cuối kì làm cái học bổng nhé ! :)).",
-            ending: "see yaa",
+            ending: "good luck 🍀",
             signature: "Huy Tran"
         }],
         music: { disable: false, mode: "all" }
@@ -177,7 +208,7 @@ window.RECEIVER_DATA = [
             sender: "Huy Tran",
             reciver: "Thư thí",
             messages: "Cũng làm bn lâu r ấy nhỉ, 20-10 này chúc ní vui vẻ, học giỏi k tạch môn nào nhá 😅. Vi vu ít thôu tập trung học k là k ra trường đc đâu ấy nhé 😆",
-            ending: "see yaa",
+            ending: "Thằng bạn từng cùng bàn",
             signature: "Huy Tran"
         }],
         music: { disable: false, mode: "all" }
@@ -188,10 +219,18 @@ window.RECEIVER_DATA = [
         letters0: [{
             sender: "Huy Tran",
             reciver: "Liễu",
-            messages: "Helo lại là t đây nhưng update lên r nhé 😆, chúc mi 20-10 vui vẻ mạnh khỏe nhé. Có j sớm ăn cỗ nhớ mời bn ấy nhá 😅\nChăm học lên nhé ko là ko ra đc trường đâu 🤣. Học hỏi bn Ý đi nhá 🤣",
+            messages: "Helo lại là t đây nhưng update lên r nhé 😆, chúc mi 20-10 vui vẻ mạnh khỏe nhé. Có j sớm ăn cỗ nhớ mời bn ấy nhá 😅\n",
             ending: "see yaa",
             signature: "Huy Tran"
-        }],
+        },
+        {
+            sender: "Huy Tran",
+            reciver: "Liễu",
+            messages: "Chăm học lên nhé ko là ko ra đc trường đâu 🤣. Học hỏi bn Ý đi nhá 🤣",
+            ending: "",
+            signature: ""
+        },
+    ],
         music: { disable: false, mode: "all" }
     },
     {
@@ -200,22 +239,42 @@ window.RECEIVER_DATA = [
         letters0: [{
             sender: "Huy Tran",
             reciver: "Ý",
-            messages: "Hé lô tui đã quay trở lại r đây 😆, 20-10 chúc bn zui vẻ, học giỏi nhá, cuối kì lại làm thêm cái học bổng nữa nhé farm aura cho mạnh 🤣.\nÀ bảo bn Liễu như yên chăm lên nhá 🤣",
-            ending: "see yaa",
+            messages: "Hé lô tui đã quay trở lại r đây 😆, 20-10 chúc bn zui vẻ, học giỏi nhá, cuối kì lại làm thêm cái học bổng nữa nhé farm aura cho mạnh 🤣.\n",
+            ending: "Good luck 🍀",
             signature: "Huy Tran"
-        }],
+        },{
+            sender: "Huy Tran",
+            reciver: "Ý",
+            messages: "À bảo bn Liễu như yên chăm lên nhá 🤣",
+            ending: "hehe :))",
+            signature: "Huy Tran"
+        }
+    ],
         music: { disable: false, mode: "all" }
     },
     {
         id: "1002",
-        name: "Tâm",
+        name: "Ngô Tâm",
         letters0: [{
             sender: "Huy Tran",
             reciver: "Tâm",
-            messages: "Chúc nhóc tân sinh viên mới lên 20-10 vui vẻ, học giỏi nhé, chăm học lên đừng thấy năm nhất dễ mà chơi nhiều nhá 😂. Có j chăm đàn meo meo kia nhá ko là a Hải chuẩn bị sẵn ra má r đấy 🤣\nÀ còn nữa, 2 chị e lượn ít thôi nhá, bà bảo thế đấy 😇\nÀ vẫn còn, lật đổ chị Linh đi 🤣🤣",
-            ending: "see yaa",
+            messages: "Chúc nhóc tân sinh viên mới lên 20-10 vui vẻ, học giỏi nhé, chăm học lên đừng thấy năm nhất dễ mà chơi nhiều nhá 😂. Có j chăm đàn meo meo kia nhá ko là a Hải chuẩn bị sẵn ra má r đấy 🤣\n",
+            ending: "Cố lên nhé em !",
             signature: "Huy Tran"
-        }],
+        },{
+            sender: "Huy Tran",
+            reciver: "Tâm",
+            messages: "À còn nữa, 2 chị e lượn ít thôi nhá, bà bảo thế đấy 😇\n",
+            ending: "Đại ca phòng 5",
+            signature: "Huy Tran"
+        },{
+            sender: "Huy Tran",
+            reciver: "Tâm",
+            messages: "À vẫn còn, lật đổ chị Linh đi 🤣🤣",
+            ending: "",
+            signature: ""
+        },
+    ],
         music: { disable: false, mode: "all" }
     },
     {
@@ -224,14 +283,22 @@ window.RECEIVER_DATA = [
         letters0: [{
             sender: "Huy Tran",
             reciver: "Nhi",
-            messages: "Chúc \"bé Úc\" 20-10 hay ăn chóng lớn, vui vẻ mạnh khỏe nhá. Học hành chăm chỉ nhá có j ăn mang a ăn với 😂.\nÀ còn nữa, cố gắng lật đổ chị Lệ nhá 😂😂",
-            ending: "see yaa",
+            messages: "Chúc \"bé Úc\" 20-10 hay ăn chóng lớn, vui vẻ mạnh khỏe nhá. Học hành chăm chỉ nhá có j ăn mang a ăn với 😂.\n",
+            ending: "kẻ mạnh nhất phòng 5 :))",
             signature: "Huy Tran"
-        }],
+        },
+        {
+            sender: "Huy Tran",
+            reciver: "Nhi",
+            messages: "À còn nữa, cố gắng lật đổ chị Lệ nhá 😂😂",
+            ending: ":)))))))))))))))))",
+            signature: ""
+        },
+    ],
         music: { disable: false, mode: "all" }
     },
     {
-        id: "",
+        id: "201002",
         name: "V.anh",
         letters0: [{
             sender: "Huy Tran",
@@ -248,10 +315,23 @@ window.RECEIVER_DATA = [
         letters0: [{
             sender: "Huy Tran",
             reciver: "Linh",
-            messages: "Chắc lần đầu m nhận lời chúc kiểu này nhỉ =)). 20-10 chúc nhóc vui vẻ, học giỏi nhá. Vui chơi đừng quên việc học nhé ko là ko ra đc trường đâu 😅\nÀ còn nữa, 2 chị e lượn ít thôi nhá, bà bảo thế đấy 😇\nÀ vẫn còn, Tâm nó cbi tạo phản đấy 🤣",
-            ending: "see yaa",
+            messages: "Chắc lần đầu m nhận lời chúc kiểu này nhỉ =)). 20-10 chúc nhóc vui vẻ, học giỏi nhá. Vui chơi đừng quên việc học nhé ko là ko ra đc trường đâu 😅\n",
+            ending: "kẻ mạnh nhất phòng 5 :))",
             signature: "Huy Tran"
-        }],
+        }, {
+            sender: "Huy Tran",
+            reciver: "Linh",
+            messages: "À còn nữa, 2 chị e lượn ít thôi nhá, bà bảo thế đấy 😇\n",
+            ending: "Bảo phải nghe nhé 😆",
+            signature: "Huy Tran"
+        },{
+            sender: "Huy Tran",
+            reciver: "Linh",
+            messages: "À vẫn còn, Tâm nó cbi tạo phản đấy 🤣",
+            ending: "hehe :))",
+            signature: ""
+        },
+    ],
         music: { disable: false, mode: "all" }
     },
     {

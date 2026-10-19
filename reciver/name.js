@@ -1,19 +1,18 @@
 window.RECEIVER_CONFIG = {
     id: 101106,
+    displayName: "Huy",
     name: "Trần Quang Huy",
     letters: [
         {
             sender: "Người bạn giấu tên",
             title: "Thư gửi Huy nhân dịp 20/10 😆",
             content: "Chào cậu, chúc cậu một ngày lễ thật ý nghĩa và nhiều niềm vui nha. Chúc cho những dự án sắp tới của cậu thành công rực rỡ!",
-            displayName: "Huy",
             ending: "Ký tên, người quen"
         },
         {
             sender: "Ban tổ chức",
             title: "Thông báo nhỏ",
             content: "Nhớ check lại code cẩn thận nha bạn êi!",
-            displayName: "Huy Tran",
             ending: ""
         }
     ],

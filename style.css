@@ -35,20 +35,23 @@ html, body {
   font-style: italic; 
 }
 
-/* Ép phần kết thư căn phải tự nhiên 100% */
+/* KHUNG CHỮ KÝ: Đẩy sang phải nhưng chữ gõ từ trái -> phải */
 .ending {
   display: block;
-  width: 100%; 
-  text-align: right !important; 
+  width: 220px; 
+  max-width: 80%;
+  margin-left: auto; 
+  text-align: left !important; 
   color: #6a4a4a;
   margin-top: 25px; 
 }
 
-/* Ép chữ ký căn phải tự nhiên 100% */
 .signature {
   display: block;
-  width: 100%; 
-  text-align: right !important; 
+  width: 220px; 
+  max-width: 80%;
+  margin-left: auto; 
+  text-align: left !important; 
   font-weight: bold;
   font-size: 1.8em; 
   color: #4a2a2a;
@@ -96,6 +99,7 @@ html, body {
   justify-content: center;
   transform-origin: center center;
   transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  white-space: nowrap;
 }
 
 #mainTitle.intro-mode {
@@ -562,18 +566,31 @@ html, body {
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* =========================================================
+   TỐI ƯU GIAO DIỆN MOBILE
+========================================================= */
 @media (max-width: 768px) {
+  #mainTitle {
+    font-size: 24px; /* Thu nhỏ cỡ chữ khi ở trong form */
+  }
+  
+  #mainTitle.intro-mode {
+    transform: translateY(50px) scale(1.4); /* Thu nhỏ tỉ lệ scale để chữ Happy Woman Day không bị tràn */
+  }
+  
   #musicContainer {
     width: 90%;
     left: 5%;
     right: 5%;
     bottom: 20px;
   }
+  
   #playlistPopup {
     width: 100%;
     right: 0;
     bottom: 100px;
   }
+  
   .letter-paper {
     padding: 30px 20px;
     font-size: 20px;

@@ -151,7 +151,7 @@ window.RECEIVER_DATA = [
         music: { disable: false, mode: "all" }
     },
     {
-        id: "",
+        id: "2004",
         name: "Diệu ninh",
         letters0: [{
             sender: "Huy Tran",
@@ -335,25 +335,25 @@ window.RECEIVER_DATA = [
         music: { disable: false, mode: "all" }
     },
     {
-        id: "",
+        id: "201004",
         name: "Tú",
         letters0: [{
             sender: "Huy Tran",
             reciver: "Tú",
-            messages: "Chúc Tú một ngày 20/10 vui vẻ và hạnh phúc nhé!",
-            ending: "see yaa",
+            messages: "Chúc đứa e 20-10 vui vẻ, hay ăn chóng lớn, học giỏi để hoàn thành ước mơ nhé 😇",
+            ending: "祝你好运",
             signature: "Huy Tran"
         }],
         music: { disable: false, mode: "all" }
     },
     {
-        id: "",
+        id: "201003",
         name: "Mánh",
         letters0: [{
             sender: "Huy Tran",
             reciver: "Mánh",
-            messages: "Chúc Mánh một ngày 20/10 vui vẻ và hạnh phúc nhé!",
-            ending: "see yaa",
+            messages: "Chúc nhỏ e sư phạm 20-10 vui vẻ, cố gắng học giỏi để hoàn thành ước mơ giáo viên nhé",
+            ending: "see u again",
             signature: "Huy Tran"
         }],
         music: { disable: false, mode: "all" }

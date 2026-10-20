@@ -26,7 +26,7 @@ html, body {
 }
 
 /* Dùng Patrick Hand cho toàn bộ phần text để không bao giờ lỗi font tiếng Việt */
-.letter-date, .letter-to, .ending, .text-container {
+.letter-date, .letter-to, .text-container {
   font-family: 'Patrick Hand', cursive;
   font-size: 1.4em; 
 }
@@ -35,8 +35,11 @@ html, body {
   font-style: italic; 
 }
 
-/* KHUNG CHỮ KÝ: Đẩy sang phải nhưng chữ gõ từ trái -> phải */
+/* KHUNG KẾT THƯ: Chữ nhỏ lại 1 chút, in nghiêng và căn lề phải */
 .ending {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.2em; /* Thu nhỏ cỡ chữ */
+  font-style: italic; /* In nghiêng */
   display: block;
   width: 220px; 
   max-width: 80%;
@@ -46,6 +49,7 @@ html, body {
   margin-top: 25px; 
 }
 
+/* KHUNG CHỮ KÝ: Thu nhỏ cỡ chữ lại 1 chút cho hài hòa */
 .signature {
   display: block;
   width: 220px; 
@@ -53,7 +57,7 @@ html, body {
   margin-left: auto; 
   text-align: left !important; 
   font-weight: bold;
-  font-size: 1.8em; 
+  font-size: 1.5em; /* Giảm từ 1.8em xuống 1.5em */
   color: #4a2a2a;
 }
 
@@ -571,11 +575,11 @@ html, body {
 ========================================================= */
 @media (max-width: 768px) {
   #mainTitle {
-    font-size: 24px; /* Thu nhỏ cỡ chữ khi ở trong form */
+    font-size: 24px;
   }
   
   #mainTitle.intro-mode {
-    transform: translateY(50px) scale(1.4); /* Thu nhỏ tỉ lệ scale để chữ Happy Woman Day không bị tràn */
+    transform: translateY(50px) scale(1.4);
   }
   
   #musicContainer {
